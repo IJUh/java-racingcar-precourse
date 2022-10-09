@@ -1,11 +1,24 @@
 package racingcar.Car;
 
 public class Car {
-    public int isStop() {
-        return 3;
+
+    private int randomNumber;
+
+    public Car(int randomNumber) {
+        this.randomNumber = randomNumber;
     }
 
-    public int isaAvance() {
-        return 4;
+    public Boolean isStop() {
+        if (this.randomNumber < 4) {
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean isaAvance() {
+        if (this.randomNumber >= 4) {
+            return true;
+        }
+        return false;
     }
 }
