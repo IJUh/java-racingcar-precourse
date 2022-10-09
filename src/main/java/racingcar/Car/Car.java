@@ -1,24 +1,13 @@
 package racingcar.Car;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public class Car {
 
-    private int randomNumber;
+    private Speed speed;
+    private CarName carName;
 
-    public Car(int randomNumber) {
-        this.randomNumber = randomNumber;
-    }
-
-    public Boolean isStop() {
-        if (this.randomNumber < 4) {
-            return true;
-        }
-        return false;
-    }
-
-    public Boolean isaAvance() {
-        if (this.randomNumber >= 4) {
-            return true;
-        }
-        return false;
-    }
 }

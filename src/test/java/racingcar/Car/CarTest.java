@@ -16,17 +16,17 @@ public class CarTest {
     @DisplayName("자동차 멈춤 상태")
     @Test
     public void 자동차_멈춘다() {
-        Car car = new Car(3);
-        Boolean carStatus = car.isStop();
-        assertThat(carStatus).isTrue();
+        Car car = new Car(new Speed(3), new CarName("pobi"));
+        Speed speed = car.getSpeed();
+        assertThat(speed.isStop()).isTrue();
     }
 
     @Test
     @DisplayName("자동차 전진 상태")
     public void 자동차_전진() {
-        Car car = new Car(4);
-        Boolean carStatus = car.isaAvance();
-        assertThat(carStatus).isTrue();
+        Car car = new Car(new Speed(4), new CarName("jun"));
+        Speed speed = car.getSpeed();
+        assertThat(speed.isaAvance()).isTrue();
     }
 
 }
