@@ -36,7 +36,7 @@ public class RacingCar {
 
     private void viewCurrentPlaying(List<Car> racingCarList, int gamesIterations) {
         System.out.println("\n" + "실행 결과");
-        for (int i = 0; i < gamesIterations; i++) {
+        for (int gameCnt = 0; gameCnt < gamesIterations; gameCnt++) {
             racingBillboard(racingCarList);
             System.out.println();
         }

@@ -22,20 +22,20 @@ public class Car implements Comparable<Car> {
     }
 
     @Override
-    public int compareTo(Car car1) {
-        if (car1.getScore().getScore() > this.getScore().getScore()) {
+    public int compareTo(Car car) {
+        if (car.getScore().getScore() > this.getScore().getScore()) {
             return 1;
         }
-        if (car1.getScore().getScore() < this.getScore().getScore()) {
+        if (car.getScore().getScore() < this.getScore().getScore()) {
             return -1;
         }
         return 0;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object carObj) {
 
-        Car other = (Car) obj;
+        Car other = (Car) carObj;
 
         if (this.getCarName().getCarName().equals(other.getCarName().getCarName())) {
             return true;
