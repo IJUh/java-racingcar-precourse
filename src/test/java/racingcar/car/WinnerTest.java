@@ -11,7 +11,6 @@ public class WinnerTest {
 
     private StringBuilder winnersNameString;
     private Winners winners;
-
     @BeforeEach
     public void setUp() {
         winnersNameString = new StringBuilder();
@@ -50,5 +49,6 @@ public class WinnerTest {
 
         assertEquals(winnersNameString.toString(), "phobi,woni");
     }
+
 
 }

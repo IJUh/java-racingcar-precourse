@@ -7,6 +7,7 @@ import java.util.List;
 import racingcar.car.Car;
 import racingcar.car.CarName;
 import racingcar.car.Cars;
+import racingcar.score.Score;
 
 public class User {
 
@@ -23,9 +24,18 @@ public class User {
         String[] eachCarName = inputCarName.split(",");
         List<Car> carNameList = new ArrayList<>();
         for (int racingCarIdx = 0; racingCarIdx < eachCarName.length; racingCarIdx++) {
-            carNameList.add(new Car(new CarName(eachCarName[racingCarIdx])));
+            carNameList.add(new Car(new CarName(eachCarName[racingCarIdx]), new Score()));
         }
         return new Cars(carNameList);
+    }
+
+    private String inputGameIterations() {
+        System.out.println("시도할 회수는 몇회인가요?");
+        return readLine();
+    }
+
+    public int racingIterations() {
+        return Integer.valueOf(inputGameIterations());
     }
 
 }
