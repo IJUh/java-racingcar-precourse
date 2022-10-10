@@ -14,7 +14,7 @@ public class CarNameTest {
     @DisplayName("자동차_이름_5자리_초과할_때_IllegalArgumentException_호출_테스트")
     public void 자동차_이름이_6자리일_때_IllegalArgumentException_발생() throws IllegalArgumentException {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            CarName carName = new CarName("pobisi");
+            new CarName("pobisi");
         });
         assertThat(exception.getMessage(), containsString("5자 이하만 가능합니다."));
     }
