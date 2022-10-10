@@ -1,4 +1,4 @@
-package racingcar.Car;
+package racingcar.car;
 
 
 import static org.hamcrest.CoreMatchers.containsString;
@@ -13,10 +13,10 @@ public class CarNameTest {
     @Test
     @DisplayName("자동차_이름_5자리_초과할_때_IllegalArgumentException_호출_테스트")
     public void 자동차_이름이_6자리일_때_IllegalArgumentException_발생() throws IllegalArgumentException {
-        Exception exception = assertThrows(IllegalArgumentException.class,()-> {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             CarName carName = new CarName("pobisi");
         });
-        assertThat(exception.getMessage(),containsString("자동차 이름은 5자 이하만 가능합니다."));
+        assertThat(exception.getMessage(), containsString("[ERROR] 자동차 이름은 5자 이하만 가능합니다."));
     }
 
 }
