@@ -16,7 +16,7 @@ public class CarNameTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             CarName carName = new CarName("pobisi");
         });
-        assertThat(exception.getMessage(), containsString("[ERROR] 자동차 이름은 5자 이하만 가능합니다."));
+        assertThat(exception.getMessage(), containsString("5자 이하만 가능합니다."));
     }
 
 }
