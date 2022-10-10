@@ -13,6 +13,7 @@ public class User {
 
     private CarName carName;
     private Cars cars;
+    private static final String SAME_CAR_ERROR_MESSAGE = "[ERROR] 동일한 자동차 이름이 존재합니다.";
 
     private String inputCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -24,9 +25,17 @@ public class User {
         String[] eachCarName = inputCarName.split(",");
         List<Car> carNameList = new ArrayList<>();
         for (int racingCarIdx = 0; racingCarIdx < eachCarName.length; racingCarIdx++) {
+            Car car = new Car(new CarName(eachCarName[racingCarIdx]), new Score());
+            checkSameCarName(carNameList, car);
             carNameList.add(new Car(new CarName(eachCarName[racingCarIdx]), new Score()));
         }
         return new Cars(carNameList);
+    }
+
+    private void checkSameCarName(List<Car> carNameList, Car car) {
+        if (carNameList.contains(car)) {
+            throw new IllegalArgumentException(SAME_CAR_ERROR_MESSAGE);
+        }
     }
 
     private String inputGameIterations() {

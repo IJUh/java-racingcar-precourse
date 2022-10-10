@@ -31,4 +31,15 @@ public class Car implements Comparable<Car> {
         }
         return 0;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        Car other = (Car) obj;
+
+        if (this.getCarName().getCarName().equals(other.getCarName().getCarName())) {
+            return true;
+        }
+        return false;
+    }
 }
