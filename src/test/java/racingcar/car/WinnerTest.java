@@ -11,6 +11,7 @@ public class WinnerTest {
 
     private StringBuilder winnersNameString;
     private Winners winners;
+
     @BeforeEach
     public void setUp() {
         winnersNameString = new StringBuilder();

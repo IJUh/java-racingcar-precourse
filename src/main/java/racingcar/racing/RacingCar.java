@@ -20,41 +20,43 @@ public class RacingCar {
         Cars cars = user.racingCarNameList();
         List<Car> racingCarList = cars.carsList();
         int gamesIterations = user.racingIterations();
-        System.out.println("실행 결과");
-        for (int i = 0; i < gamesIterations; i++) {
-            racingBillboard(racingCarList);
-            System.out.println();
-        }
 
+        viewCurrentPlaying(racingCarList, gamesIterations);
+        finalCarScore(racingCarList);
+    }
+
+    private void finalCarScore(List<Car> racingCarList) {
         List<Car> carScore = new ArrayList<>();
         for (int carIdx = 0; carIdx < racingCarList.size(); carIdx++) {
             carScore.add(racingCarList.get(carIdx));
         }
         Collections.sort(carScore);
+        System.out.println("최종 우승자 : " + winners.getWinnersName(carScore));
+    }
 
-        String winnersName = winners.getWinnersName(carScore);
-
-        System.out.println("최종 우승자 : " + winnersName);
+    private void viewCurrentPlaying(List<Car> racingCarList, int gamesIterations) {
+        System.out.println("\n" + "실행 결과");
+        for (int i = 0; i < gamesIterations; i++) {
+            racingBillboard(racingCarList);
+            System.out.println();
+        }
     }
 
     private void racingBillboard(List<Car> racingCarList) {
         for (int carIdx = 0; carIdx < racingCarList.size(); carIdx++) {
             System.out.print(racingCarList.get(carIdx).getCarName().getCarName() + " : ");
             int speed = Randoms.pickNumberInRange(0, 9);
-            for (int dottedLine = 0; dottedLine < speed; dottedLine++) {
-                System.out.print("-");
-            }
+            printDotted(speed);
             System.out.println();
             racingCarList.get(carIdx).setSpeed(new Speed(speed));
             calculateScore(racingCarList.get(carIdx), racingCarList.get(carIdx).getSpeed().isAdvance());
         }
+    }
 
-        for (int carIdx = 0; carIdx < racingCarList.size(); carIdx++) {
-            System.out.println(
-                    racingCarList.get(carIdx).getCarName().getCarName() + "의 점수는 : " + racingCarList.get(carIdx)
-                            .getScore().getScore());
+    private void printDotted(int speed) {
+        for (int dottedLine = 0; dottedLine < speed; dottedLine++) {
+            System.out.print("-");
         }
-
     }
 
     private void calculateScore(Car car, boolean isAdvance) {

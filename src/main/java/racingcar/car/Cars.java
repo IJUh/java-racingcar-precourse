@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Cars {
-
     private List<Car> cars;
 
     public List<Car> carsList() {
